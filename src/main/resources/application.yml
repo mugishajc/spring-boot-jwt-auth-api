@@ -17,3 +17,6 @@ app:
     issuer: jwt-auth-api
     access-token-ttl: 15m
     refresh-token-ttl: 7d
+  bootstrap-admin:
+    email: ${ADMIN_EMAIL:}
+    password: ${ADMIN_PASSWORD:}
