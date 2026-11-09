@@ -4,6 +4,7 @@ import io.github.mugishajc.authapi.security.AccessTokenClaims;
 import io.github.mugishajc.authapi.user.dto.ChangeRoleRequest;
 import io.github.mugishajc.authapi.user.dto.ChangeStatusRequest;
 import io.github.mugishajc.authapi.user.dto.UserResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * SecurityConfig; the annotation keeps the rule next to the code as well.
  */
 @RestController
+@Tag(name = "Admin")
 @RequestMapping("/api/admin/users")
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminUserController {
