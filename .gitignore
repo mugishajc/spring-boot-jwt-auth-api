@@ -1,0 +1,22 @@
+target/
+*.log
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+
+# Local overrides and secrets
+.env
+application-local.yml
+
+# H2 file databases
+*.mv.db
+*.trace.db
+
+.DS_Store

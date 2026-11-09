@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jwt-auth-api
+  profiles:
+    default: dev
+  jpa:
+    open-in-view: false
+
+server:
+  error:
+    include-stacktrace: never
