@@ -9,3 +9,11 @@ spring:
 server:
   error:
     include-stacktrace: never
+
+app:
+  jwt:
+    # Required. No default outside the dev profile.
+    secret: ${JWT_SECRET:}
+    issuer: jwt-auth-api
+    access-token-ttl: 15m
+    refresh-token-ttl: 7d

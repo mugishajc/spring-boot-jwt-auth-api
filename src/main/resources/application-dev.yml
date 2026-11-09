@@ -6,3 +6,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+app:
+  jwt:
+    # Local development only. Any real deployment must set JWT_SECRET.
+    secret: ${JWT_SECRET:dev-only-secret-do-not-use-in-production-0123456789}
