@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:authtest;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+app:
+  jwt:
+    secret: test-secret-that-is-long-enough-for-hs256-signing
+  security:
+    # Minimum cost keeps the suite fast; production uses 12.
+    bcrypt-strength: 4
