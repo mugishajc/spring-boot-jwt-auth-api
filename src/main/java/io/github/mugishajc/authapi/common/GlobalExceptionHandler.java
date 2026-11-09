@@ -8,6 +8,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -73,6 +74,10 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     ProblemDetail handleUnexpected(Exception e) {
+        // Framework exceptions such as 404 for unknown paths or 405 already carry the right status.
+        if (e instanceof ErrorResponse errorResponse) {
+            return errorResponse.getBody();
+        }
         log.error("Unhandled exception", e);
         return problem(HttpStatus.INTERNAL_SERVER_ERROR, "Internal error", "Something went wrong");
     }
